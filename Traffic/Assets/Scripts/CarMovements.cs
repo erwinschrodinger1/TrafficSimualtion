@@ -9,25 +9,26 @@ public class CarMovements : MonoBehaviour
     [SerializeField] WheelCollider rearRight;
     [SerializeField] WheelCollider rearLeft;
 
-    float rayDistance = 1.2f;
-    private float currentAcceleration = 50f;
+    float rayDistance = 1.5f;
+    private float currentAcceleration;
     private float currentBreakForce = 0f;
+
+    float acceleration = 50f;
 
     private void Update()
     {
-        if (Physics.Raycast(transform.position,Vector3.forward,out RaycastHit hitinfo, rayDistance))
+        if (Physics.Raycast(new Vector3(transform.position.x,transform.position.y+0.15f,transform.position.z),Vector3.forward,out RaycastHit hitinfo, rayDistance))
         {
-            Debug.Log("Hitting Something");
-            currentBreakForce = currentAcceleration*10000f;
+            // Debug.Log("Hitting Something"+currentAcceleration);
+            currentBreakForce = 1000f;
         }
         else{
+            currentAcceleration = acceleration;
             currentBreakForce = 0;
         }
 
         frontRight.motorTorque = currentAcceleration;
         frontLeft.motorTorque = currentAcceleration;
-        rearRight.motorTorque = currentAcceleration;
-        rearLeft.motorTorque = currentAcceleration;
 
         frontRight.brakeTorque = currentBreakForce;
         frontLeft.brakeTorque = currentBreakForce;

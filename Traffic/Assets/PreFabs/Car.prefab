@@ -602,7 +602,7 @@ GameObject:
   - component: {fileID: 5081409739279566233}
   m_Layer: 0
   m_Name: Car
-  m_TagString: Untagged
+  m_TagString: cars
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -669,5 +669,3 @@ MonoBehaviour:
   frontLeft: {fileID: 9102165408704930007}
   rearRight: {fileID: 3044559837394433910}
   rearLeft: {fileID: 4312149698871935075}
-  acceleration: 50
-  breakingForce: 5000
